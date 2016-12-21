@@ -388,9 +388,10 @@ def create_returns_tear_sheet(returns, positions=None,
     for ax in fig.axes:
         plt.setp(ax.get_xticklabels(), visible=True)
 
-    plt.show()
     if return_fig:
         return fig
+    else:
+        plt.show()
 
 
 @plotting_context
