@@ -16,6 +16,7 @@ from __future__ import division
 
 from time import time
 import warnings
+import platform
 
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
@@ -281,7 +282,8 @@ def create_returns_tear_sheet(returns, positions=None,
     if bootstrap:
         vertical_sections += 1
 
-    plt.switch_backend('Agg')
+    if platform.system() == 'Linux':
+        plt.switch_backend('Agg')
     fig = plt.figure(figsize=(14, vertical_sections * 6))
     gs = gridspec.GridSpec(vertical_sections, 3, wspace=0.5, hspace=0.5)
     ax_rolling_returns = plt.subplot(gs[:2, :])
