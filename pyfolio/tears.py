@@ -388,6 +388,8 @@ def create_returns_tear_sheet(returns, positions=None,
     for ax in fig.axes:
         plt.setp(ax.get_xticklabels(), visible=True)
 
+    gs.tight_layout(fig)
+
     if return_fig:
         return fig
     else:
